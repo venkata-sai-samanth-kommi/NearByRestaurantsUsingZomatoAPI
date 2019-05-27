@@ -1,12 +1,36 @@
+html,body{
+  height: 100%;
+  margin: 0;
+}
+
+body {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .flex-container {
     display: flex;
-    background-color: DodgerBlue;
     flex-wrap: wrap;
   }
   
   .flex-container > div {
-    background-color: #f1f1f1;
+    flex :1;
     margin: 10px;
     padding: 20px;
-    font-size: 30px;
+  }
+
+  .normalcard {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+  }
+  
+  .normalcard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .normalcontainer {
+    padding: 2px 16px;
   }
