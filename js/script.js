@@ -61,11 +61,25 @@ const parseJsonAndCreateCards = (myJson) =>{
   createTag(`img`,{"src":`${myJson.restaurants[index].restaurant.thumb}`,"alt":`${myJson.restaurants[index].restaurant.name}`},`${index}`,null);
   createTag(`div`,{"class":"normalcontainer","id":`${index}container`},`${index}`,null);
   createTag(`h4`,{"id":`${myJson.restaurants[index].restaurant.name}`},`${index}container`,`${myJson.restaurants[index].restaurant.name}`);
+  createTag(`div`,{"id":`${index}starRating`},`${index}container`,null);
+  createTag(`p`,{"id":`${index}starPara`},`${index}starRating`,`Average user Rating : ${myJson.restaurants[index].restaurant.user_rating.aggregate_rating}  `);
+  createTag('span',{"class":`glyphicon glyphicon-star`},`${index}starPara`,`  `);
   //creating area for hiding and showing details.
-  
+  createTag(`div`,{"id":`${index}toggle`,"style":`display:none`},`${index}container`,null)
+  createTag(`h5`,null,`${index}toggle`,`${myJson.restaurants[index].restaurant.location.address}`);
+  createTag(`button`,{"class":"btn btn-primary","id":`${index}button`,"onclick":`toggleFunction(${index})`},`${index}container`,`Address`);
   }
 }
 
+
+const toggleFunction = (_id) =>{
+  var x = document.getElementById(_id+"toggle");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 
 //script for bootstrap nav bar creation.
 createTag(`div`,{"id":`top-header`},`body`,null);
