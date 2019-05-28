@@ -97,5 +97,5 @@ createTag(`b`,null,`homea`,`HOME`);
 const changeImage = (_id)=>
 {
   let x = document.getElementById(_id+"image");
-  x.src = 'js/imna.png';
+  x.src = '/js/imna.png';
 }
