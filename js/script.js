@@ -62,7 +62,7 @@ const parseJsonAndCreateCards = (myJson) =>{
   createTag(`div`,{"class":"normalcontainer","id":`${index}container`},`${index}`,null);
   createTag(`h4`,{"id":`${myJson.restaurants[index].restaurant.name}`},`${index}container`,`${myJson.restaurants[index].restaurant.name}`);
   createTag(`div`,{"id":`${index}starRating`},`${index}container`,null);
-  createTag(`p`,{"id":`${index}starPara`},`${index}starRating`,`Average user Rating : ${myJson.restaurants[index].restaurant.user_rating.aggregate_rating}  `);
+  createTag(`p`,{"id":`${index}starPara`},`${index}starRating`,`Average user Rating : ${myJson.restaurants[index].restaurant.user_rating.aggregate_rating}`);
   createTag('span',{"class":`glyphicon glyphicon-star`},`${index}starPara`,`  `);
   //creating area for hiding and showing details.
   createTag(`div`,{"id":`${index}toggle`,"style":`display:none`,"class":"toggle"},`${index}`,null)
@@ -70,6 +70,8 @@ const parseJsonAndCreateCards = (myJson) =>{
   createTag(`div`,{"class":"normalcontainer2","id":`${index}container2`},`${index}`,null);
   createTag(`button`,{"class":"btn btn-primary","id":`${index}button`,"onclick":`toggleFunction(${index})`},`${index}container2`,`Address`);
   }
+  createTag(`footer`,null,`body`,
+  `Find Restaurants Near You!  \u00A9 Samanth`);
 }
 
 
@@ -87,15 +89,15 @@ createTag(`div`,{"id":`top-header`},`body`,null);
 createTag(`nav`,{"class":`navbar navbar-inverse`,"id":`nav`},`top-header`,null);
 createTag(`div`,{"class":`container`,"id":`container`},`nav`,null);
 createTag(`div`,{"class":`navbar-header`,"id":`navbar-header`},`container`,null);
-createTag(`div`,{"class":`navbar-brand`,"id":`navbar-brand`},`navbar-header`,`Zomato Developer API`);
+createTag(`div`,{"class":`navbar-brand`,"id":`navbar-brand`,"style":`color:white`},`navbar-header`,`Zomato Developer API`);
 createTag(`ul`,{"class":`nav navbar-nav navbar-right`,"id":`navul`},`container`,null);
 createTag(`li`,{"id":`homeli`},`navul`,null);
 createTag(`a`,{"href":"#","id":"homea"},`homeli`,null);
-createTag(`b`,null,`homea`,`HOME`);	
+createTag(`b`,{"style":`color:white`},`homea`,`HOME`);	
 
 
 const changeImage = (_id)=>
 {
   let x = document.getElementById(_id+"image");
-  x.src = '/js/imna.png';
+  x.src = 'js/imna.png';
 }
