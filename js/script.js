@@ -52,28 +52,29 @@ const userAction = async () => {
 }
 
 const parseJsonAndCreateCards = (myJson) =>{
-  var parent = 'flex-container';
+  const parent = 'flex-container';
   console.log(myJson);
   //creation of cards.
   for(var index in myJson.restaurants)
   {//  console.log(myJson.restaurants[index].restaurant.name);
   createTag(`div`,{"id":`${index}`,"class":`normalcard`},`${parent}`,null);
-  createTag(`img`,{"src":`${myJson.restaurants[index].restaurant.thumb}`,"alt":`${myJson.restaurants[index].restaurant.name}`},`${index}`,null);
+  createTag(`img`,{"src":`${myJson.restaurants[index].restaurant.thumb}`,"onerror":`changeImage(${index})`,"class":"rimg","id":`${index}image`},`${index}`,null);
   createTag(`div`,{"class":"normalcontainer","id":`${index}container`},`${index}`,null);
   createTag(`h4`,{"id":`${myJson.restaurants[index].restaurant.name}`},`${index}container`,`${myJson.restaurants[index].restaurant.name}`);
   createTag(`div`,{"id":`${index}starRating`},`${index}container`,null);
   createTag(`p`,{"id":`${index}starPara`},`${index}starRating`,`Average user Rating : ${myJson.restaurants[index].restaurant.user_rating.aggregate_rating}  `);
   createTag('span',{"class":`glyphicon glyphicon-star`},`${index}starPara`,`  `);
   //creating area for hiding and showing details.
-  createTag(`div`,{"id":`${index}toggle`,"style":`display:none`},`${index}container`,null)
+  createTag(`div`,{"id":`${index}toggle`,"style":`display:none`,"class":"toggle"},`${index}`,null)
   createTag(`h5`,null,`${index}toggle`,`${myJson.restaurants[index].restaurant.location.address}`);
-  createTag(`button`,{"class":"btn btn-primary","id":`${index}button`,"onclick":`toggleFunction(${index})`},`${index}container`,`Address`);
+  createTag(`div`,{"class":"normalcontainer2","id":`${index}container2`},`${index}`,null);
+  createTag(`button`,{"class":"btn btn-primary","id":`${index}button`,"onclick":`toggleFunction(${index})`},`${index}container2`,`Address`);
   }
 }
 
 
 const toggleFunction = (_id) =>{
-  var x = document.getElementById(_id+"toggle");
+  let x = document.getElementById(_id+"toggle");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -91,3 +92,10 @@ createTag(`ul`,{"class":`nav navbar-nav navbar-right`,"id":`navul`},`container`,
 createTag(`li`,{"id":`homeli`},`navul`,null);
 createTag(`a`,{"href":"#","id":"homea"},`homeli`,null);
 createTag(`b`,null,`homea`,`HOME`);	
+
+
+const changeImage = (_id)=>
+{
+  let x = document.getElementById(_id+"image");
+  x.src = 'js/imna.png';
+}
