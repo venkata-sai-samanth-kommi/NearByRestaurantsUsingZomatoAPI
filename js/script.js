@@ -99,5 +99,5 @@ createTag(`b`,{"style":`color:white`},`homea`,`HOME`);
 const changeImage = (_id)=>
 {
   let x = document.getElementById(_id+"image");
-  x.src = 'imna.png';
+  x.src = 'https://sai12999.github.io/NearByRestaurantsUsingZomatoAPI/imna.png';
 }
