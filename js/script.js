@@ -70,6 +70,7 @@ const parseJsonAndCreateCards = (myJson) =>{
   createTag(`div`,{"class":"normalcontainer2","id":`${index}container2`},`${index}`,null);
   createTag(`button`,{"class":"btn btn-primary","id":`${index}button`,"onclick":`toggleFunction(${index})`},`${index}container2`,`Address`);
   }
+    alert();
   createTag(`footer`,null,`body`,
   `Find Restaurants Near You!  \u00A9 Samanth`);
 }
